@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cokonet</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+      body{margin-top:10px;
+background-color:black;
+color:#69707a;
+}
+.img-account-profile {
+    height: 10rem;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+.card .card-header {
+    font-weight: 500;
+}
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+
+.nav-borders .nav-link.active {
+    color: #0061f2;
+    border-bottom-color: #0061f2;
+}
+.nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+  </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="Dashboard" style="float: right;">
+    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo">
+    Cokonet
+  </a>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Create Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">View Blog</a>
+        </li>
+
+      </ul>
+
+      <div class="dropdown" style="margin-right:80px;">
+    <a class="navbar-brand dropdown-toggle" href="#"  data-bs-toggle="dropdown">
+      <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
+    </a>
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'createpro' %}">Create profile</a></li>
+      <li><a class="dropdown-item" href="{% url 'profile' %}">View profile</a></li>
+      <li><a class="dropdown-item" href="{% url 'propic' %}">Upload Profile pic</a></li>
+      <li><a class="dropdown-item" href="% url 'editpro' %}">Edit profile</a></li>
+      <li><a class="dropdown-item" href="changepass">Change password</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+  </div>
+    </div>
+  </div>
+</nav>
+
+
+ <hr class="mt-0 mb-4">
+<br><br><br>
+    <div class="row">
+        <div class="col-xl-5"></div>
+        <div class="col-xl-3">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <form enctype="multipart/form-data" action="{% url 'propic'%}" method="post">
+                    {% csrf_token %}
+                    <div class="card-body text-center">
+                        <!-- Profile picture image-->
+                        <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <!-- Profile picture upload button-->
+                        <input type="file"  id="shop_image" name="images"><br><br>
+                        <button class="btn btn-primary" type="submit">Upload Image</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
